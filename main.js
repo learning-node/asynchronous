@@ -9,8 +9,8 @@ CTRL + C
  */
 function delayedGreet(waitTime) {
   setTimeout(() => {
-
-  });
+    console.log('Hello');
+  }, waitTime);
 }
 // Uncomment the below line to test your work.
 // delayedGreet(1000); // Should console.log "Hello" after 1 second.
@@ -22,8 +22,8 @@ function delayedGreet(waitTime) {
  */
 function greetRepeatedly(waitTime) {
   setInterval(() => {
-
-  });
+    console.log('Hello');
+  }, waitTime);
 }
 // Uncomment the below line to test your work.
 // greetRepeatedly(1000); // Should console.log "Hello" once every 1 second.
@@ -34,7 +34,9 @@ function greetRepeatedly(waitTime) {
  */
 function getLater(input, waitTime) {
   return new Promise((resolve, reject) => {
-
+    setTimeout(() => {
+      resolve(input);
+    }, waitTime);
   });
 }
 // Uncomment the below line to test your work.
@@ -45,8 +47,9 @@ function getLater(input, waitTime) {
  that getCappedLater was given, and then return a capitalized version of whatever the promise from getLater()
  returns.
  */
- function getCappedLater(input, waitTime) {
-
- }
+function getCappedLater(input, waitTime) {
+  return getLater(input, waitTime)
+    .then(data => data.toUpperCase());
+}
 // Uncomment the below line to test your work.
 // getCappedLater("george", 1000).then(data => console.log(data)); // Should console.log "GEORGE" after 1 second.
